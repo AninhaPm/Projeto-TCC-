@@ -1,0 +1,165 @@
+body {
+    background-color: #fefffe;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  button {
+    border: none;
+    background-color: transparent;
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1.5rem;
+  }
+  
+  header nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  header nav ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  header nav ul li a {
+    margin-right: 1.5rem;
+    color: #333;
+    font-size: 0.9rem;
+  }
+  
+  header nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  header nav .bento-menu {
+    margin-right: 1.5rem;
+    /* margin-top: -0.5rem; */
+    position: relative;
+  }
+  
+  header nav .bento-menu ul.menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.2rem;
+    padding: 0.7rem;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  header nav .bento-menu ul.menu:hover {
+    background-color: #d8d8d8;
+  }
+  
+  header nav .bento-menu ul.menu li {
+    width: 0.3rem;
+    height: 0.3rem;
+    background-color: #333;
+    border-radius: 50%;
+  }
+  
+  header nav .bento-menu article {
+    position: absolute;
+    top: -100vh;
+    right: 1rem;
+    opacity: 0;
+  }
+  
+  header nav .bento-menu article.open {
+    min-width: 200px;
+    right: 1rem;
+    top: 4rem;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 0.625rem;
+    opacity: 1;
+  }
+  
+  header nav .bento-menu article ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    place-items: center;
+  }
+  
+  header nav .bento-menu article ul li {
+    border-radius: 0.625rem;
+  }
+  
+  header nav .bento-menu article ul li:hover {
+    background-color: #d7fefd;
+    cursor: pointer;
+  }
+  
+  header nav .bento-menu article ul li i {
+    font-size: 2rem;
+    color: #333;
+    padding: 1rem;
+  }
+  
+  header nav .bento-menu article ul li img {
+    width: 2rem;
+  }
+  
+  header nav div button img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+  }
+  
+  .search-bar {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+  }
+  
+  .search-bar img {
+    width: 18rem;
+    margin-bottom: 2rem;
+  }
+  
+  .search-bar form {
+    position: relative;
+    max-width: 650px;
+    margin: auto;
+  }
+  
+  .search-bar form label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: #cacaca;
+  }
+  
+  .search-bar form input {
+    padding: 1rem;
+    width: 100%;
+    border-radius: 30px;
+    border: 1px solid #e5e5e5;
+    transition: 0.3s;
+  }
+  
+  .search-bar form input:hover {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .buttons {
+    text-align: center;
+  }
+  
+  .buttons ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+
+
