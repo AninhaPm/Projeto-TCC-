@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Google</title>
+    <style>
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <img src="./profile.jpg" alt="Foto do perfil do usuário" class="profile-pic" />
+          </li>
+          <li>
+            <i
+              id="settingsButton"
+              class="fa-solid fa-gear settings-icon"
+              aria-label="Abrir configurações"
+              role="button"
+              tabindex="0"
+            ></i>
+
+            <div id="settingsMenu" class="settings-menu" aria-live="polite" style="display: none;">
+              <button class="close-menu" aria-label="Fechar configurações">×</button>
+              <ul>
+                <li>
+                  <a href="#" data-info="Ativa o modo escuro para melhorar o conforto visual.">Tema Escuro</a>
+                </li>
+                <li>
+                  <a href="#" data-info="Permite ajustar informações da sua conta Google.">Configurações de Conta</a>
+                </li>
+                <li>
+                  <a href="#" data-info="Acessa ajuda com dúvidas ou problemas sobre o Google.">Ajuda</a>
+                </li>
+              </ul>
+              <p class="explanation"></p>
+            </div>
+          </li>
+          <li><a href="https://mail.google.com" target="_blank">Gmail</a></li>
+          <li><a href="https://www.google.com.br/imghp">Imagens</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="search-bar">
+        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" class="google-logo" />
+        
+        <form>
+          <div class="search-box">
+            <label for="search" class="visually-hidden">Campo de pesquisa</label>
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input type="search" name="search" id="search" placeholder="Pesquisar no Google ou digitar uma URL" />
+
+            <button type="button" class="voice-search" aria-label="Pesquisar por voz">
+              <i class="fa-solid fa-microphone search-icon"></i>
+            </button>
+            <button type="button" class="image-search" aria-label="Pesquisar por imagem">
+              <i class="fa-regular fa-image search-icon"></i>
+            </button>
+          </div>
+
+          <p class="error-message" style="color: red; display: none;"></p>
+
+          <!-- Botões agora estão dentro do formulário -->
+          <div class="buttons">
+            <button type="submit" class="btn">Pesquisa Google</button>
+            <button type="submit" class="btn lucky-btn">Estou com sorte</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>Brasil</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
