@@ -18,6 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Botão de fechar do menu de configurações
+    const settingsCloseButton = document.querySelector("#settingsMenu .close-menu");
+    if (settingsCloseButton) {
+        settingsCloseButton.addEventListener("click", function () {
+            settingsMenu.style.display = "none";
+        });
+    }
+
     // Verificar se o campo de pesquisa está vazio e redirecionar
     searchForm.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -107,4 +115,67 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // --- Teclado virtual ---
+    const keyboardToggle = document.querySelector(".keyboard-toggle");
+    const virtualKeyboard = document.getElementById("virtualKeyboard");
+    const keyboardClose = document.getElementById("keyboardClose");
+
+    if (keyboardToggle && virtualKeyboard) {
+        keyboardToggle.addEventListener("click", function () {
+            virtualKeyboard.style.display =
+                virtualKeyboard.style.display === "none" ? "block" : "none";
+        });
+    }
+
+    if (keyboardClose) {
+        keyboardClose.addEventListener("click", function () {
+            virtualKeyboard.style.display = "none";
+        });
+    }
+
+    const keyboardButtons = virtualKeyboard.querySelectorAll("button");
+    keyboardButtons.forEach(button => {
+        if (button.id !== "keyboardClose") {
+            button.addEventListener("click", function () {
+                searchInput.value += this.textContent;
+                searchInput.focus();
+            });
+        }
+    });
+
+    // --- Menu de perfil ---
+    const profilePic = document.querySelector(".profile-pic");
+    const profileMenu = document.createElement("div");
+    profileMenu.classList.add("settings-menu", "profile-menu");
+    profileMenu.style.display = "none";
+    profileMenu.setAttribute("aria-live", "polite");
+
+    profileMenu.innerHTML = `
+        <button class="close-menu" aria-label="Fechar perfil" title="Fechar o menu de perfil">&times;</button>
+        <ul>
+          <li><a href="#" title="Ver perfil do Google">Perfil</a></li>
+          <li><a href="#" title="Acessar sua Conta do Google">Minha Conta</a></li>
+          <li><a href="#" title="Ver seus dados">Dados</a></li>
+          <li><a href="#" title="Ajustes de privacidade">Privacidade</a></li>
+          <li><a href="#" title="Sair da sua conta">Sair</a></li>
+        </ul>
+    `;
+
+    profilePic.parentElement.appendChild(profileMenu);
+
+    profilePic.addEventListener("click", function (event) {
+        event.stopPropagation();
+        profileMenu.style.display = profileMenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!profileMenu.contains(event.target) && event.target !== profilePic) {
+            profileMenu.style.display = "none";
+        }
+    });
+
+    profileMenu.querySelector(".close-menu").addEventListener("click", function () {
+        profileMenu.style.display = "none";
+    });
 });

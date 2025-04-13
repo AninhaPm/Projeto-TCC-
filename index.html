@@ -30,71 +30,124 @@
     <header>
       <nav>
         <ul>
-          <li>
-            <img src="./profile.jpg" alt="Foto do perfil do usuário" class="profile-pic" />
+          <li class="profile-container">
+            <img src="./profile.jpg" alt="Foto do perfil do usuário" class="profile-pic" title="Foto do seu perfil de usuário" tabindex="0" aria-haspopup="true" aria-expanded="false" id="profileButton"/>
+
+            <div id="profileMenu" class="profile-menu" style="display: none;" role="menu" aria-label="Menu do perfil do usuário">
+              <div class="profile-info">
+                <img src="./profile.jpg" alt="Foto do perfil do usuário" class="profile-pic-large" />
+                <p class="user-name">Nome do Usuário</p>
+                <p class="user-email">emailusuario@gmail.com</p>
+              </div>
+              <ul>
+                <li><a href="#" role="menuitem">Gerenciar sua Conta do Google</a></li>
+                <li><a href="#" role="menuitem">Adicionar outra conta</a></li>
+                <li><a href="#" role="menuitem">Sair</a></li>
+              </ul>
+            </div>
           </li>
+
           <li>
             <i
               id="settingsButton"
               class="fa-solid fa-gear settings-icon"
               aria-label="Abrir configurações"
+              title="Clique para abrir o menu de configurações como tema escuro e conta"
               role="button"
               tabindex="0"
             ></i>
 
             <div id="settingsMenu" class="settings-menu" aria-live="polite" style="display: none;">
-              <button class="close-menu" aria-label="Fechar configurações">×</button>
+              <button class="close-menu" aria-label="Fechar configurações" title="Fechar o menu de configurações">&times;</button>
               <ul>
                 <li>
-                  <a href="#" data-info="Ativa o modo escuro para melhorar o conforto visual.">Tema Escuro</a>
+                  <a href="#" data-info="Ativa o modo escuro para melhorar o conforto visual." title="Ativa o modo escuro da página">Tema Escuro</a>
                 </li>
                 <li>
-                  <a href="#" data-info="Permite ajustar informações da sua conta Google.">Configurações de Conta</a>
+                  <a href="#" data-info="Permite ajustar informações da sua conta Google." title="Configurar sua conta Google">Configurações de Conta</a>
                 </li>
                 <li>
-                  <a href="#" data-info="Acessa ajuda com dúvidas ou problemas sobre o Google.">Ajuda</a>
+                  <a href="#" data-info="Acessa ajuda com dúvidas ou problemas sobre o Google." title="Abrir a página de ajuda do Google">Ajuda</a>
                 </li>
               </ul>
               <p class="explanation"></p>
             </div>
           </li>
-          <li><a href="https://mail.google.com" target="_blank">Gmail</a></li>
-          <li><a href="https://www.google.com.br/imghp">Imagens</a></li>
+          <li><a href="https://mail.google.com" target="_blank" title="Abrir o Gmail em nova aba">Gmail</a></li>
+          <li><a href="https://www.google.com.br/imghp" title="Ir para a página de busca por imagens do Google">Imagens</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
       <section class="search-bar">
-        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" class="google-logo" />
-        
+        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" class="google-logo" title="Logotipo do Google" />
+
         <form>
           <div class="search-box">
             <label for="search" class="visually-hidden">Campo de pesquisa</label>
-            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-            <input type="search" name="search" id="search" placeholder="Pesquisar no Google ou digitar uma URL" />
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true" title="Ícone de busca"></i>
+            <input type="search" name="search" id="search" placeholder="Pesquisar no Google ou digitar uma URL" title="Digite o que deseja pesquisar ou uma URL" />
 
-            <button type="button" class="voice-search" aria-label="Pesquisar por voz">
+            <button type="button" class="voice-search" aria-label="Pesquisar por voz" title="Clique para falar e realizar a busca por voz">
               <i class="fa-solid fa-microphone search-icon"></i>
             </button>
-            <button type="button" class="image-search" aria-label="Pesquisar por imagem">
+            <button type="button" class="image-search" aria-label="Pesquisar por imagem" title="Clique para fazer upload de imagem e buscar por ela">
               <i class="fa-regular fa-image search-icon"></i>
+            </button>
+            <button type="button" class="keyboard-toggle" aria-label="Abrir teclado virtual" title="Clique para abrir o teclado virtual na tela">
+              <i class="fa-solid fa-keyboard search-icon"></i>
             </button>
           </div>
 
-          <p class="error-message" style="color: red; display: none;"></p>
+          <p class="error-message" style="color: red; display: none;" title="Mensagem de erro será exibida aqui se houver algum problema"></p>
 
-          <!-- Botões agora estão dentro do formulário -->
           <div class="buttons">
-            <button type="submit" class="btn">Pesquisa Google</button>
-            <button type="submit" class="btn lucky-btn">Estou com sorte</button>
+            <button type="submit" class="btn" title="Clique para realizar a busca com os termos digitados">Pesquisa Google</button>
+            <button type="submit" class="btn lucky-btn" title="Clique para ir direto ao primeiro resultado encontrado">Estou com sorte</button>
           </div>
         </form>
+
+        <div class="virtual-keyboard" id="virtualKeyboard" style="display: none;" aria-label="Teclado virtual" title="Teclado virtual para digitar usando o mouse ou toque">
+          <div class="keyboard-row">
+            <button type="button" title="Letra Q">Q</button>
+            <button type="button" title="Letra W">W</button>
+            <button type="button" title="Letra E">E</button>
+            <button type="button" title="Letra R">R</button>
+            <button type="button" title="Letra T">T</button>
+            <button type="button" title="Letra Y">Y</button>
+            <button type="button" title="Letra U">U</button>
+            <button type="button" title="Letra I">I</button>
+            <button type="button" title="Letra O">O</button>
+            <button type="button" title="Letra P">P</button>
+          </div>
+          <div class="keyboard-row">
+            <button type="button" title="Letra A">A</button>
+            <button type="button" title="Letra S">S</button>
+            <button type="button" title="Letra D">D</button>
+            <button type="button" title="Letra F">F</button>
+            <button type="button" title="Letra G">G</button>
+            <button type="button" title="Letra H">H</button>
+            <button type="button" title="Letra J">J</button>
+            <button type="button" title="Letra K">K</button>
+            <button type="button" title="Letra L">L</button>
+          </div>
+          <div class="keyboard-row">
+            <button type="button" title="Letra Z">Z</button>
+            <button type="button" title="Letra X">X</button>
+            <button type="button" title="Letra C">C</button>
+            <button type="button" title="Letra V">V</button>
+            <button type="button" title="Letra B">B</button>
+            <button type="button" title="Letra N">N</button>
+            <button type="button" title="Letra M">M</button>
+            <button type="button" id="keyboardClose" title="Fechar o teclado virtual">Fechar</button>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer>
-      <p>Brasil</p>
+      <p title="Localização atual do usuário">Brasil</p>
     </footer>
 
     <script src="script.js"></script>

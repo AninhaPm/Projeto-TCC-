@@ -10,7 +10,7 @@ header {
   display: flex;
   justify-content: flex-end;
   padding: 10px;
-  position: relative; /* Adicionado para posicionamento relativo do menu */
+  position: relative;
 }
 
 nav ul {
@@ -23,7 +23,7 @@ nav ul {
 }
 
 nav ul li {
-  position: relative; /* Necessário para o menu ficar preso ao ícone */
+  position: relative;
 }
 
 nav ul li a {
@@ -163,4 +163,54 @@ nav ul li a {
 
 .settings-menu ul li:hover {
   background: #f1f1f1;
+}
+
+.virtual-keyboard {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.virtual-keyboard button {
+  background-color: white;
+  border: 1px solid #ccc;
+  margin: 2px;
+  padding: 10px 14px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.virtual-keyboard button:hover {
+  background-color: #e0e0e0;
+}
+
+.virtual-keyboard button:active {
+  transform: scale(0.95);
+}
+
+.keyboard-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.keyboard-toggle .search-icon {
+  font-size: 18px;
+  color: #5f6368;
 }
